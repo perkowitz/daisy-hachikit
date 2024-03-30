@@ -7,6 +7,8 @@
 using namespace daisy;
 using namespace daisysp;
 
+typedef unsigned char  u8;
+
 #define MAX_ENV_TIME 20
 
 class Utility {
@@ -44,6 +46,30 @@ class Utility {
                 default: break;
             }
             return std::min(max, std::max(min, scaled));
+        }
+
+        /** Convert a float to a string, since the DaisySP skips this functionality for compactness.
+        */
+        static std::string FloatToString(float value, uint8_t digits) {
+            int left = std::floor(value);
+            int right = std::floor(value * pow(10, digits));
+            return std::to_string(left) + "." + std::to_string(right);
+        }
+
+        /** Convert a float to a string, since the DaisySP skips this functionality for compactness.
+        */
+        static std::string FloatToString3(float value) {
+            int left = std::floor(value);
+            int right = std::floor(value * 1000);
+            return std::to_string(left) + "." + std::to_string(right);
+        }
+
+        /** Convert a float to a string, since the DaisySP skips this functionality for compactness.
+        */
+        static std::string FloatToString2(float value) {
+            int left = std::floor(value);
+            int right = std::floor(value * 100);
+            return std::to_string(left) + "." + std::to_string(right);
         }
 
         static void DrawDrums(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver> *display, uint8_t current) {

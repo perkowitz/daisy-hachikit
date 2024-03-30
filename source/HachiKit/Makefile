@@ -7,6 +7,7 @@ Screen.cpp \
 Bd8.cpp \
 Sd8.cpp \
 SdNoise.cpp \
+FmDrum.cpp \
 
 OPT = -Os
 

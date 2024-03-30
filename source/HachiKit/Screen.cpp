@@ -30,13 +30,14 @@ void Screen::DrawMenu(uint8_t selected) {
 
     uint8_t itemWidth = FONT.FontWidth * 2 + 3;
     uint8_t itemHeight = FONT.FontWidth + 4;
-    uint8_t displayCount = std::min(WIDTH / itemWidth + 1, MENU_SIZE);
+    uint8_t displayCount = std::min(WIDTH / itemWidth, MENU_SIZE);
     uint8_t highlightPos = displayCount / 2;
+    // highlightPos = 4;
     uint8_t start = std::min(std::max(0, selected - highlightPos), MENU_SIZE - displayCount);
 
     for (uint8_t pos = start; pos < start + displayCount; pos++) {
         bool sel = pos == selected;
-        uint8_t x = itemWidth * pos;
+        uint8_t x = itemWidth * (pos - start);
         uint8_t y = HEIGHT - itemHeight;
         Rectangle rect(x, y, itemWidth, itemHeight);
         DrawButton(rect, menuItems[pos], true, sel, !sel);

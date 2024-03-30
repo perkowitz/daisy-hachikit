@@ -12,6 +12,9 @@ using namespace daisysp;
 class IDrum {
 
     public:
+        // Number of settable parameters for this model.
+        static const uint8_t PARAM_COUNT = 0;
+
         virtual void Init(float sample_rate) = 0;
         virtual float Process() = 0;
         virtual void Trigger(float velocity) = 0;

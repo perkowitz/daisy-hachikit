@@ -15,6 +15,7 @@ class SdNoise: public IDrum {
     public:
         // Number of settable parameters for this model.
         static const uint8_t PARAM_COUNT = 3;
+        // This is the order params will appear in the UI.
         static const uint8_t PARAM_ATTACK = 0;
         static const uint8_t PARAM_DECAY = 1;
         static const uint8_t PARAM_CURVE = 2;
